@@ -45,6 +45,22 @@ router.delete('/:id', (req, res) => {
     })
 })
 
+router.post('/:id/friends/:friendid', (req, res) => {
+    User.findByIdAndUpdate(req.params.id, {$push: {friends: req.params.friendid}})
+    .then(result => res.sendStatus(200))
+    .catch(err => {
+        console.log(err);
+        res.sendStatus(404);
+    })
+})
 
+router.delete('/:id/friends/:friendid', (req, res) => {
+    User.findByIdAndUpdate(req.params.id, {$pull: {friends: req.params.friendid}})
+    .then(() => res.sendStatus(200))
+    .catch(err => {
+        console.log(err);
+        res.sendStatus(404);
+    })
+})
 
 module.exports = router;
