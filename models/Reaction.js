@@ -1,6 +1,11 @@
-const {Mongoose, Schema} = require('mongoose');
+const {model, Schema} = require('mongoose');
 
 const Reaction = new Schema({
+    reactionId: {
+        type: Schema.Types.ObjectId,
+        default: () => new Types.ObjectId(),
+        required: true,
+    },
     reactionBody: {
         type: String,
         required: true,
@@ -11,8 +16,9 @@ const Reaction = new Schema({
         required: true,
     },
 }, {
-    timestamps: true
+    timestamps: true,
+    id: false
 });
 
-module.exports = Mongoose.model('reaction', Reaction);
+module.exports = Reaction;
 

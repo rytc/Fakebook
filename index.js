@@ -7,7 +7,6 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use(require('./routes'));
 
-
-require('./db')
-    .then(() => app.listen(3000))
-    .catch(err => console.log(err))
+app.listen(3000, () => {
+    const db = require('./db');
+})

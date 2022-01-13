@@ -1,7 +1,8 @@
-const {Mongoose, Schema} = require('mongoose')
+const {model, Schema} = require('mongoose')
+const Reaction = require('./Reaction.js')
 
 const Thought = new Schema({
-    thoguthText: {
+    thoughtText: {
         type: String,
         require: true,
         minLength: 1,
@@ -11,16 +12,13 @@ const Thought = new Schema({
         type: String,
         require:true,
     },
-    reactions: [{
-        type: Schema.Types.ObjectId,
-        ref: 'reaction'
-    }]
+    reactions: [Reaction]
 }, {
     timestamps: true,
 });
 
-Thought.virtual('reactionCount').get(() => {
+Thought.virtual('reactionCount').get(function() {
     return this.reactions.length;
 });
 
-module.exports = Mongoose.model('thought', Thought);
+module.exports = model('thought', Thought);
