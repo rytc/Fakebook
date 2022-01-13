@@ -1,0 +1,24 @@
+{
+  "name": "fakebook",
+  "version": "1.0.0",
+  "description": "Social Media API Homework",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rytc/Fakebook.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rytc/Fakebook/issues"
+  },
+  "homepage": "https://github.com/rytc/Fakebook#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mongose": "^0.0.2-security"
+  }
+}
